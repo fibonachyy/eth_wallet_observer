@@ -1,0 +1,14 @@
+{
+  "name": "ethobserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mahdi Ashouri",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^1.3.4"
+  }
+}
