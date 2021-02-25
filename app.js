@@ -25,13 +25,11 @@ class TransactionChecker {
     });
   }
   watchTransaction() {
-    console.log("watching all pending transaction...");
+    console.log("watching all pending transaction....");
     this.subscription.on("data", (txHash) => {
-      console.log(txHash);
       setTimeout(async () => {
         try {
-          let tx = await this.websocketProvider.eth.getTransaction(txHash);
-          console.log(tx);
+          let tx = await this.web3.eth.getTransaction(txHash);
           if (tx != null) {
             if (this.account == tx.to.toLowerCase()) {
               console.log({
@@ -44,14 +42,14 @@ class TransactionChecker {
         } catch (e) {
           console.log(e);
         }
-      }, 5 * 60000);
+      }, 10000);
     });
   }
 }
 
 let txChecker = new TransactionChecker(
   "a1f9ce9c8dd649c1a64e672dc8b18885",
-  "0x28A86dd85bCc6773942B923Ff988AF5f85398115"
+  "0xcB4d2736C23d6aC1f63898CAA3F354291839BE1f"
 );
 
 txChecker.subscribe("pendingTransactions");
